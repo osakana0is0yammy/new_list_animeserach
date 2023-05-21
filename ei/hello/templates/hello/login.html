@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>ログイン</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style_login.css' %}" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1 class="login-title">ログイン</h1>
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <input class="submit-button" type="submit" value="ログイン">
+            </form>
+            <br><br>
+            <a href="{% url 'signup' %}" class="signup-link">未登録の方はこちら</a>
+        </div>
+    </div>
+</body>
+</html>

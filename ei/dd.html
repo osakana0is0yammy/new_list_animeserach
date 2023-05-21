@@ -1,0 +1,69 @@
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>電話番号入力</title>
+  <style>
+    .o-input--num-display {
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>電話番号入力</h1>
+  <input id="phoneNumberInput" type="text" maxlength="11">
+  <div>
+    <button id="keypad-0" class="o-input--num-display" onclick="addNumber(0)">0</button>
+    <button id="keypad-1" class="o-input--num-display" onclick="addNumber(1)">1</button>
+    <button id="keypad-2" class="o-input--num-display" onclick="addNumber(2)">2</button>
+    <button id="keypad-3" class="o-input--num-display" onclick="addNumber(3)">3</button>
+    <button id="keypad-4" class="o-input--num-display" onclick="addNumber(4)">4</button>
+    <button id="keypad-5" class="o-input--num-display" onclick="addNumber(5)">5</button>
+    <button id="keypad-6" class="o-input--num-display" onclick="addNumber(6)">6</button>
+    <button id="keypad-7" class="o-input--num-display" onclick="addNumber(7)">7</button>
+    <button id="keypad-8" class="o-input--num-display" onclick="addNumber(8)">8</button>
+    <button id="keypad-9" class="o-input--num-display" onclick="addNumber(9)">9</button>
+    <button id="keypad-enter" class="o-input--num-display" onclick="deleteNumber()">Delete</button>
+  </div>
+  <button id="keypad-delete" onclick="submitPhoneNumber()" disabled>Enter</button>
+  <script>
+    const phoneNumberInput = document.getElementById('phoneNumberInput');
+    const enterButton = document.getElementById('enterButton');
+
+    function addNumber(number) {
+        const phoneNumber = phoneNumberInput.value;
+        if (phoneNumber.length < 11) {
+            phoneNumberInput.value += number;
+        }
+      updateEnterButtonState();
+    }
+
+    function deleteNumber() {
+      phoneNumberInput.value = phoneNumberInput.value.slice(0, -1);
+      updateEnterButtonState();
+    }
+
+    function updateEnterButtonState() {
+      const phoneNumber = phoneNumberInput.value;
+      if (isValidPhoneNumber(phoneNumber)) {
+        enterButton.disabled = false;
+      } else {
+        enterButton.disabled = true;
+      }
+    }
+
+    function isValidPhoneNumber(phoneNumber) {
+      const pattern1 = /^0\d{2}\d{8}$/; // 0x0から始まる11桁
+      const pattern2 = /^0\d{9}$/; // 0から始まる10桁
+      return pattern1.test(phoneNumber) || pattern2.test(phoneNumber);
+    }
+
+    function submitPhoneNumber() {
+      const phoneNumber = phoneNumberInput.value;
+      console.log('電話番号:', phoneNumber);
+      // ここで次の画面に遷移するなどの処理を行います
+    }
+  </script>
+</body>
+</html>

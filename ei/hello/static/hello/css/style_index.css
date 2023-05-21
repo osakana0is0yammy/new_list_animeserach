@@ -1,0 +1,81 @@
+body {
+    background-color: white;
+}
+
+.inner {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #e0e0e0;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.an,
+.an1,
+.an12 {
+    height: 10px;
+}
+
+.name {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.container {
+    text-align: center;
+}
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.senti {
+    margin: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.prev-button,
+.next-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e0e0e0;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table td {
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+.title {
+    font-weight: bold;
+}
+
+hr {
+    margin: 20px 0;
+}
